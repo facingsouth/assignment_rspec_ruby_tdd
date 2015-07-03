@@ -19,13 +19,25 @@
 require 'anagram'
 
 
-  describe '#anagram' do 
+describe '#anagram' do 
 
-   it 'should load an array' do
-    expect(anagram).to be_a(Array)
+   it 'should raise an error if the arg is not a string' do
+    expect {anagram(10)}.to raise_error
    end
 
+   it "should return an string array" do
 
-    
-  end
+    expect(anagram("abc")).to be_a(Array)
+
+   end
+
+   it "should return the correct anagrams" do
+
+    response = ["RETOOL", "ROOTLE", "TOOLER"]
+
+    expect(anagram("looter")).to eq(response)
+
+   end
+
+end
 
